@@ -1,0 +1,21 @@
+{
+  "compilerOptions": {
+    "outDir": "./dist/",
+    "noImplicitAny": false,
+    "sourceMap": true,
+    "module": "es6",
+    "target": "es5",
+    "jsx": "react",
+    "allowJs": true,
+    "moduleResolution": "node",
+    "paths": {
+      "test-utils": ["./utils/test-utils"]
+    },
+    "experimentalDecorators": true,
+    "typeRoots": ["src/typings", "node_modules/@types"]
+  },
+  "include": ["src/**/*"],
+  "exclude": ["node_modules", "**/*.spec.ts"],
+  "esModuleInterop": true,
+  "allowSyntheticDefaultImports": true
+}

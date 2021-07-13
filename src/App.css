@@ -1,0 +1,36 @@
+@import url("https://fonts.googleapis.com/css?family=Dosis:400,600,700");
+@import "~bootstrap/scss/bootstrap";
+
+* {
+  margin: 0%;
+  padding: 0%;
+  outline: 0;
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  min-width: 100%;
+  min-height: 100%;
+}
+
+body {
+  background-color: white;
+}
+
+body,
+input,
+button {
+  font-family: "Dosis", Arial, Helvetica, sans-serif;
+  font-size: 14px;
+}
+
+footer {
+  /* position: fixed; */
+  /* left: 0; */
+  /* bottom: 0; */
+  width: 100%;
+  background-color: #d9d9d9;
+  padding: 1em;
+}
