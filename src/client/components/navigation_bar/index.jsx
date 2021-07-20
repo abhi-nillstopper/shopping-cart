@@ -1,8 +1,9 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, lazy, Suspense } from "react";
 import { useHistory, Link, NavLink } from "react-router-dom";
 import { Image, Navbar, Nav, Button, Container } from "react-bootstrap";
 import { UserContext } from "../../user-context";
-import ModalComponent from "../modal";
+// import ModalComponent from "../modal";
+const ModalComponent = lazy(() => import("../modal"));
 import Logo_Big from "../../../../static/images/logo_2x.png";
 // import Logo from "../../../static/images/logo.png";
 import Cart from "../../../../static/images/cart.svg";
@@ -24,6 +25,8 @@ export default function NavigationBar(props) {
   const toggleModal = () => {
     setModalOpen(!modalOpen);
   };
+
+  const renderLoader = () => <p>Loading</p>;
 
   return (
     <>
@@ -91,7 +94,9 @@ export default function NavigationBar(props) {
       </Container>
 
       {modalOpen && (
-        <ModalComponent visible={modalOpen} toggleModal={toggleModal} />
+        <Suspense fallback={renderLoader()}>
+          <ModalComponent visible={modalOpen} toggleModal={toggleModal} />
+        </Suspense>
       )}
     </>
   );
