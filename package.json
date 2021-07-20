@@ -3,6 +3,10 @@
   "version": "1.0.0",
   "description": "This is a shopping cart coding exercise",
   "main": "src/index.js",
+  "engines": {
+    "node": "14.17.0",
+    "npm": "6.14.13"
+  },
   "scripts": {
     "old-heroku-prebuild": "npm i rimraf && npm run node-clean",
     "node-clean": "rimraf node_modules && mkdir node_modules && npm install && rimraf ./build && mkdir build",

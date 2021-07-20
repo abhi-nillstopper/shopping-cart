@@ -35,8 +35,6 @@ try {
 app.use(cors({ origin: process.env.SPORT_FRONTEND_URL }));
 app.use(express.json());
 
-console.log("__dirname", __dirname);
-
 // the __dirname is the current directory from where the script is running
 app.use(express.static(path.join(__dirname, "..", "client_build")));
 
