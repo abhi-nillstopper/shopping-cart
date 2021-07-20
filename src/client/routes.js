@@ -13,10 +13,11 @@ export default function Routes() {
         <Switch>
           <NavigationBar>
             <Route path="/" exact component={HomePage} />
-            <Route path="/login" exact component={LoginPage} />
-            <Route path="/register" exact component={RegisterPage} />
-            <Route path="/home" exact component={HomePage} />
-            <Route path="/products" exact component={ProductPage} />
+            <Route path="/login" component={LoginPage} />
+            <Route path="/register" component={RegisterPage} />
+            <Route path="/home" component={HomePage} />
+            <Route path="/products" component={ProductPage} />
+            {/* <Route path="*" component={HomePage} /> */}
           </NavigationBar>
         </Switch>
       </BrowserRouter>

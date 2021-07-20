@@ -10,7 +10,7 @@
   "scripts": {
     "old-heroku-prebuild": "npm i rimraf && npm run node-clean",
     "node-clean": "rimraf node_modules && mkdir node_modules && npm install && rimraf ./build && mkdir build",
-    "heroku-prebuild": "rimraf ./build",
+    "heroku-prebuild": "rm -rf ./build",
     "heroku-postbuild": "npm run build-app",
     "build-app": "npm run client-build && npm run babel-build",
     "babel-build": "babel -d ./build ./src/server -s",

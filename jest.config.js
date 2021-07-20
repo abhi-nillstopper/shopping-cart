@@ -10,8 +10,8 @@ const config = {
       "<rootDir>/utils/jest/__mocks__/fileMock.js",
   },
   testMatch: [
-    "<rootDir>/src/spec/**/*test.{js, jsx}",
-    "<rootDir>/src/spec/**/*.test.tsx",
+    "<rootDir>/src/client/spec/**/*test.{js, jsx}",
+    "<rootDir>/src/client/spec/**/*.test.tsx",
   ],
   transform: {
     "^.+\\.(js|jsx|ts|tsx)$": "babel-jest",
@@ -20,7 +20,7 @@ const config = {
   },
   // snapshotSerializers: ["enzyme-to-json/serializer"],
   collectCoverage: true,
-  collectCoverageFrom: ["src/**/*.jsx", "src/**/*.tsx", "!src/spec/**/*.js"],
+  collectCoverageFrom: ["src/client/**/*.jsx", "src/client/**/*.tsx", "!src/client/spec/**/*.js"],
   // collectCoverageFrom: ["src/**/*.js", "!src/server/index.js"],
   coverageReporters: ["text", "json", "html", "lcov"],
   setupFilesAfterEnv: ["<rootDir>/utils/jest/setUpTests.js"],
