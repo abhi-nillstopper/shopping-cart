@@ -73,7 +73,8 @@ $left-space-5: 5%;
               border-color: unset;
             }
 
-            span.delete-svg {
+            button.delete-svg {
+              border: none;
               margin-left: $left-space-5;
               img {
                 height: 20px;
@@ -85,7 +86,14 @@ $left-space-5: 5%;
               margin-bottom: auto;
             }
 
+            span.item-quantity {
+              margin-left: 2%;
+              margin-right: 2%;
+              font-weight: bold;
+            }
+
             span.item-base-price {
+              font-weight: bold;
               margin-left: $left-space-5;
             }
             span.item-total-price {
@@ -132,7 +140,7 @@ $left-space-5: 5%;
               button {
                 margin: auto;
               }
-              span.delete-svg {
+              button.delete-svg {
                 img {
                   height: unset;
                   width: unset;

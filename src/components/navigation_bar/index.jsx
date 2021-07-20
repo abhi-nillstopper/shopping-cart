@@ -16,6 +16,7 @@ export default function NavigationBar(props) {
 
   const handleLogout = () => {
     localStorage.removeItem("user");
+    localStorage.removeItem("user_id");
     setIsLoggedIn(false);
     history.push("/login");
   };
@@ -28,27 +29,32 @@ export default function NavigationBar(props) {
     <>
       <div className="top-navigation-bar">
         <Navbar expand="lg">
-        <Navbar.Toggle aria-controls="basic-navbar-nav" />
+          <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <span className="main-app-logo">
             <Link to="/">
-              <Image src={Logo_Big} />
+              <Image alt="Sabka Bazaar" src={Logo_Big} />
             </Link>
           </span>
-
-          <Navbar.Collapse id="basic-navbar-nav">
-            <Nav className="ml-auto">
-              <Nav.Item>
-                <NavLink activeClassName="active-nav-link" to="/" exact>
-                  Home
-                </NavLink>
-              </Nav.Item>
-              <Nav.Item>
-                <NavLink activeClassName="active-nav-link" to="/products">
-                  products
-                </NavLink>
-              </Nav.Item>
-            </Nav>
-          </Navbar.Collapse>
+          {isLoggedIn && (
+            <Navbar.Collapse id="basic-navbar-nav">
+              <Nav className="ml-auto">
+                <Nav.Item>
+                  <NavLink activeClassName="active-nav-link" to="/" exact>
+                    Home
+                  </NavLink>
+                </Nav.Item>
+                <Nav.Item>
+                  <NavLink
+                    activeClassName="active-nav-link"
+                    to="/products"
+                    exact
+                  >
+                    Products
+                  </NavLink>
+                </Nav.Item>
+              </Nav>
+            </Navbar.Collapse>
+          )}
         </Navbar>
         <div className="user-controls">
           {isLoggedIn ? (
@@ -67,9 +73,13 @@ export default function NavigationBar(props) {
           )}
 
           {isLoggedIn && (
-            <button className="cart-svg" onClick={toggleModal}>
-              <div >
-                <Image src={Cart} />
+            <button
+              aria-label="Cart"
+              className="cart-svg"
+              onClick={toggleModal}
+            >
+              <div>
+                <Image alt="Cart" src={Cart} />
                 {numOfItems}&nbsp;items
               </div>
             </button>

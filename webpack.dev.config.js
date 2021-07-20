@@ -7,7 +7,6 @@ const dotenv = require("dotenv");
 module.exports = {
   entry: path.join(__dirname, "src", "index.js"),
   target: "web",
-  mode: "development",
   output: {
     path: path.join(__dirname, "build"),
     filename: "index.bundle.js",
@@ -22,7 +21,7 @@ module.exports = {
     contentBase: path.join(__dirname, "static"),
     hot: true,
   },
-  devtool: 'source-map',
+  devtool: "source-map",
   // moduleDirectories: ["node_modules", "./utils/test-utils.js"],
   module: {
     rules: [
@@ -59,6 +58,18 @@ module.exports = {
     }),
     new webpack.DefinePlugin({
       "process.env": JSON.stringify(dotenv.config().parsed), // it will automatically pick up key values from .env file
+    }),
+    // new webpack.EnvironmentPlugin(
+    //   ["NODE_ENV", "DEBUG"],
+    //   [
+    //     "AXIOS_BASE_URL",
+    //     process.env.NODE_ENV === "development"
+    //       ? "http://localhost:8000"
+    //       : "https://express-shopping-app.herokuapp.com",
+    //   ]
+    // ),
+    new webpack.EnvironmentPlugin({
+      AXIOS_BASE_URL: "http://localhost:8000",
     }),
     new CopyWebpackPlugin({
       patterns: [

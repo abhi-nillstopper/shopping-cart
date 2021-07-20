@@ -10,6 +10,10 @@ import ProductsPage from "../../../../pages/products";
 import api from "../../../../helper/axios_api";
 import { UserContext } from "../../../../user-context";
 import { products } from "../../../__mocks__/products/payload";
+// import * as apis from "../../../../helper/get_products";
+// jest.mock("../../../../helper/get_products", ()=> {return {fetchProducts(){
+// return Promise.resolve({name: "abhi"})
+// }}})
 
 describe("Product Page test", () => {
   let historyMock = { push: jest.fn() };

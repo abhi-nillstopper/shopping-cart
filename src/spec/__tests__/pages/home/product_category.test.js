@@ -37,7 +37,7 @@ describe("Product Category test", () => {
 
   it("check all categories rendered", () => {
     const categoriesDiv = screen.getAllByTestId("category");
-    expect(categoriesDiv.length).toBe(categories.categories.length);
+    expect(categoriesDiv.length).toBe(categories.categories.length - 1);
   });
 
   test("click on category button", () => {

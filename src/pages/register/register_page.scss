@@ -30,21 +30,38 @@ div.register-container {
 @media screen and (max-width: 992px) {
   div.register-container {
     display: grid;
-    margin-left: 20%;
+    // margin-left: 20%;
+
+    .register-header {
+      margin: auto;
+      text-align: center;
+    }
 
     form {
+      // width: unset;
       margin-top: 5%;
+      margin-left: auto;
+      margin-right: auto;
     }
   }
 }
 .register-alert-container {
   margin-top: 5%;
-  margin-bottom: 5%;
-  width: 100%;
-  height: 0.6em;
+  // margin-bottom: 5%;
+  width: unset;
+  // height: 0.6em;
   text-align: center;
 
   p {
-    height: 0.4em;
+    margin: auto;
+    // height: 0.4em;
+  }
+}
+
+@media screen and (max-width: 640px) {
+  div.register-container {
+    form {
+    width: unset;
+    }
   }
 }

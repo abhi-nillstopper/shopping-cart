@@ -25,11 +25,13 @@ $box-shadow-fix: 15px 7px 15px 2px #9f9f9f;
       // color: blue;
       text-decoration: underline;
     }
+
+    .active-nav-link {
+      color: #007bff;
+    }
   }
 
-  .active-nav-link {
-    color: #007bff;
-  }
+  
 
   .user-controls {
     display: flex;
@@ -49,7 +51,7 @@ $box-shadow-fix: 15px 7px 15px 2px #9f9f9f;
     .logout-btn {
       // height: 33%;
       // margin-top: 3%;
-      margin-bottom: 5%;
+      margin-bottom: 10%;
     }
 
     button.cart-svg {
@@ -61,7 +63,7 @@ $box-shadow-fix: 15px 7px 15px 2px #9f9f9f;
       padding: 0.2em;
       background-color: #d9d9d9;
       img {
-        height: 5vh;
+        height: 2.2em;
       }
     }
 
@@ -73,7 +75,7 @@ $box-shadow-fix: 15px 7px 15px 2px #9f9f9f;
 
 .page-content {
   margin-bottom: 5%;
-  min-height: 32em;
+  min-height: 72vh;
 }
 
 @media screen and (max-width: 992px) {
@@ -95,9 +97,9 @@ $box-shadow-fix: 15px 7px 15px 2px #9f9f9f;
         margin: 3%;
       }
 
-      div.cart-svg {
+      button.cart-svg {
         img {
-          height: 4vh;
+          height: 2em;
         }
       }
     }

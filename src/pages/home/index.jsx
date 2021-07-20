@@ -4,12 +4,14 @@ import ProductCategory from "./product_category";
 import { UserContext } from "../../user-context";
 // import { importAll } from "../../helper/import_all";
 import api from "../../helper/axios_api";
+import useDevice from "../../helper/useDevice"
 import "./home_page.scss";
 
 export default function HomePage(props) {
   const [OfferImages, setOfferImages] = useState([]);
   const [categoryImages, setCategoryImages] = useState([]);
   const { isLoggedIn } = useContext(UserContext);
+  const { isMobile, isTablet, isDesktop } = useDevice();
 
   const fetchOfferImages = async () => {
     try {
@@ -49,7 +51,7 @@ export default function HomePage(props) {
   return (
     <>
       <div className="home-container" data-testid="home-container">
-        <Carousel data-testid="carousel-test" fade>
+        <Carousel indicators={(isDesktop ? true : false)} variant="dark" data-testid="carousel-test" fade>
           {OfferImages.map((ofImg, index) => {
             return (
               <Carousel.Item key={index} interval={2000}>

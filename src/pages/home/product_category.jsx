@@ -15,19 +15,22 @@ export default function ProductCategory(props) {
       <div className="product-categories">
         {categoryImages.map((img, index) => {
           return (
-            <div key={img.key} className="category" data-testid="category">
-              <Image src={img.imageUrl} />
-              <div className="description">
-                <h2>{img.name}</h2>
-                <h6>{img.description}</h6>
-                <Button
-                  variant="danger"
-                  onClick={() => onCategoryClick(img.key)}
-                >
-                  {img.key}
-                </Button>
+            img.enabled && (
+              <div key={img.key} className="category" data-testid="category">
+                <Image alt={img.name} src={img.imageUrl} />
+                <div className="description">
+                  <h2>{img.name}</h2>
+                  <h6>{img.description}</h6>
+                  <Button
+                    alt={img.name}
+                    variant="danger"
+                    onClick={() => onCategoryClick(img.key)}
+                  >
+                    {img.key}
+                  </Button>
+                </div>
               </div>
-            </div>
+            )
           );
         })}
       </div>

@@ -45,9 +45,17 @@ div.category:nth-child(even) {
   flex-direction: row-reverse;
 }
 
-// @media only screen and (max-width: 640px) {
-//   .product-categories {
-//     .category {
-//     }
-//   }
-// }
+@media only screen and (max-width: 640px) {
+  div.home-container {
+    .product-categories {
+      .category {
+        margin-top: 4%;
+        .description {
+          h2 {
+            font-size: 1.5em;
+          }
+        }
+      }
+    }
+  }
+}

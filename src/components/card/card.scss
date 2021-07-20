@@ -18,6 +18,8 @@ div.card-container {
     img {
       height: 13em;
       margin: auto;
+      // visibility: hidden;
+      // display: none;
     }
 
     .card-description {
@@ -53,6 +55,8 @@ div.card-container {
   position: fixed;
   top: 2%;
   left: 50%;
+  z-index: 1051;
+  transform: translateX(-50%);
 
   p {
     margin: auto;
@@ -86,7 +90,7 @@ div.card-container {
         }
 
         .small-screen-btn {
-          font-size: small;
+          font-size: smaller;
           margin-top: 10%;
           width: 100%;
           display: block;
@@ -99,7 +103,7 @@ div.card-container {
     }
   }
 
-  .alert-container {
-    left: 25%;
-  }
+  // .alert-container {
+  //   left: 25%;
+  // }
 }

@@ -36,8 +36,6 @@ describe("RegisterPage test", () => {
   });
 
   it("check submit button", () => {
-    // let event = jest.fn(() => {});
-
     const signup = screen.getByRole("button", {
       name: /signup/i,
     });
