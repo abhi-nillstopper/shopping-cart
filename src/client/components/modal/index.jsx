@@ -20,7 +20,7 @@ export default function ModalComponent(props) {
   useEffect(() => {
     let user_cart_items = JSON.parse(localStorage.getItem("user_cart_items"));
     setFinalAmount(user_cart_items.reduce(reduceFunc, 0));
-  }, []);
+  }, [cartItems]);
 
   useEffect(() => {
     setShow(props.visible);

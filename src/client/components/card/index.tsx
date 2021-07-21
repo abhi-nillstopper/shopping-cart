@@ -44,21 +44,35 @@ const Card: React.FC<CardProps> = (props): React.ReactElement => {
       setTimeout(() => setShowAlert(false), 1500);
     } else {
       // let numOfItemsInt = parseInt(numOfItems) + 1;
+
       user_cart_items.forEach((product) => {
         if (product.id === id) {
-          product.quantity = parseInt(product.quantity) + 1;
+          if (product.quantity === 5) {
+            setAlertVariant("danger");
+            setShowAlert(true);
+            setAlertMessage("Max 5 quantity allowed per Product");
+            setTimeout(() => setShowAlert(false), 1500);
+            return;
+          } else {
+            product.quantity = parseInt(product.quantity) + 1;
+            localStorage.setItem(
+              "user_cart_items",
+              JSON.stringify(user_cart_items)
+            );
+            setCartItems(user_cart_items);
+
+            setAlertVariant("success");
+            setAlertMessage("Item added in cart successfully");
+            setShowAlert(true);
+            setTimeout(() => setShowAlert(false), 1500);
+
+            return;
+          }
         }
       });
       // let updatedCart = [...cartItems, { name, imageURL, price, id, quantity: 1 }];
       // localStorage.setItem("numOfProductsInCart", numOfItemsInt.toString());
-      localStorage.setItem("user_cart_items", JSON.stringify(user_cart_items));
       // setNumOfItems(parseInt(numOfItems) + 1);
-      setCartItems(user_cart_items);
-
-      setAlertVariant("success");
-      setAlertMessage("Item added in cart successfully");
-      setShowAlert(true);
-      setTimeout(() => setShowAlert(false), 1500);
       // setAlertVariant("danger");
       // setShowAlert(true);
       // setAlertMessage("Goto cart, Product already in cart");
