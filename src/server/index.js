@@ -11,7 +11,7 @@ const app = express();
 
 // const CONNECTED_USERS = {};
 
-const ClientBuildPath = path.join(__dirname, "..","..", "client_build");
+let ClientBuildPath = path.join(__dirname, "..","..", "client_build");
 
 if (process.env.NODE_ENV !== "production") {
   require("dotenv").config();
