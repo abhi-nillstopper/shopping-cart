@@ -1,12 +1,14 @@
+@import "../../styles/variables";
+
 $shadow-black: 0px 7px 10px;
-$box-shadow-fix: 0px 7px 15px 2px #9f9f9f;
+// $box-shadow-fix: 0px 7px 15px 2px #9f9f9f;
 
 div.home-container {
   width: 90%;
   margin: auto;
 
   .carousel.slide {
-    box-shadow: $box-shadow-fix;
+    box-shadow: $box-shadow-def;
     .carousel-control-next-icon,
     .carousel-control-prev-icon {
       background-color: black;
@@ -20,7 +22,7 @@ div.home-container {
     .category {
       height: 40vh;
       margin-top: 2%;
-      box-shadow: $box-shadow-fix;
+      box-shadow: $box-shadow-def;
       display: flex;
 
       img {

@@ -1,9 +1,10 @@
-$box-shadow-fix: 15px 7px 15px 2px #9f9f9f;
+@import "../../styles/variables";
+// $box-shadow-fix: 15px 7px 15px 2px #9f9f9f;
 
 .top-navigation-bar {
   height: 7rem;
   margin-bottom: 2em;
-  box-shadow: $box-shadow-fix;
+  box-shadow: $box-shadow-def;
   display: flex;
 
   .main-app-logo {
