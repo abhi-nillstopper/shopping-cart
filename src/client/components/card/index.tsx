@@ -45,14 +45,13 @@ const Card: React.FC<CardProps> = (props): React.ReactElement => {
     } else {
       // let numOfItemsInt = parseInt(numOfItems) + 1;
 
-      user_cart_items.forEach((product) => {
+      user_cart_items.some((product) => {
         if (product.id === id) {
           if (product.quantity === 5) {
             setAlertVariant("danger");
             setShowAlert(true);
             setAlertMessage("Max 5 quantity allowed per Product");
             setTimeout(() => setShowAlert(false), 1500);
-            return;
           } else {
             product.quantity = parseInt(product.quantity) + 1;
             localStorage.setItem(
@@ -65,10 +64,10 @@ const Card: React.FC<CardProps> = (props): React.ReactElement => {
             setAlertMessage("Item added in cart successfully");
             setShowAlert(true);
             setTimeout(() => setShowAlert(false), 1500);
-
-            return;
           }
+          return true;
         }
+        return false;
       });
       // let updatedCart = [...cartItems, { name, imageURL, price, id, quantity: 1 }];
       // localStorage.setItem("numOfProductsInCart", numOfItemsInt.toString());

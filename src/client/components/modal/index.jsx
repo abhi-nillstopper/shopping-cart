@@ -140,14 +140,16 @@ function CartFunctions({
 
   const handleQuantityChange = (operator) => {
     let user_cart_items = JSON.parse(localStorage.getItem("user_cart_items"));
-    user_cart_items.forEach((product) => {
+    user_cart_items.some((product) => {
       if (product.id === product_id) {
         if (operator === "+") {
           product.quantity = parseInt(product.quantity) + 1;
         } else {
           product.quantity = parseInt(product.quantity) - 1;
         }
+        return true;
       }
+      return false;
     });
     localStorage.setItem("user_cart_items", JSON.stringify(user_cart_items));
     setCartItems(user_cart_items);
@@ -175,7 +177,7 @@ function CartFunctions({
     <>
       <div className="cart-functions">
         <Button
-          disabled={counter === 0}
+          disabled={counter === 1}
           className="rounded-btn"
           onClick={handleMinus}
           name="decrease quantity"
