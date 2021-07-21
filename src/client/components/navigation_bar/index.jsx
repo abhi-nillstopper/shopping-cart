@@ -5,7 +5,7 @@ import { UserContext } from "../../user-context";
 // import ModalComponent from "../modal";
 const ModalComponent = lazy(() => import("../modal"));
 import Logo_Big from "../../../../static/images/logo_2x.png";
-// import Logo from "../../../static/images/logo.png";
+import Logo from "../../../../static/images/logo.png";
 import Cart from "../../../../static/images/cart.svg";
 import "./navigation_bar.scss";
 
@@ -35,7 +35,16 @@ export default function NavigationBar(props) {
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <span className="main-app-logo">
             <Link to="/">
-              <Image alt="Sabka Bazaar" src={Logo_Big} />
+              <picture>
+                <source media="(max-width:768px)" srcSet={Logo} />
+                <source media="(max-width:992px)" srcSet={Logo_Big} />
+                <img
+                  src={Logo_Big}
+                  alt="Sabka Bazaar"
+                  style={{ width: "auto" }}
+                />
+              </picture>
+              {/* <Image alt="Sabka Bazaar" src={Logo_Big} /> */}
             </Link>
           </span>
           {isLoggedIn && (
