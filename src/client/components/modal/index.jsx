@@ -7,27 +7,20 @@ import "./modal.scss";
 export default function ModalComponent(props) {
   const [show, setShow] = useState(false);
   const [showAlert, setShowAlert] = useState(false);
+  const [finalAmount, setFinalAmount] = useState(0);
   const { cartItems, numOfItems, setCartItems, setNumOfItems } =
     useContext(UserContext);
 
   const reduceFunc = (sum, item) => {
-    return sum + item.price;
+    return sum + item.price * item.quantity;
   };
 
-  let user_cart_items = JSON.parse(localStorage.getItem("user_cart_items"));
+  // let user_cart_items = JSON.parse(localStorage.getItem("user_cart_items"));
 
   useEffect(() => {
     let user_cart_items = JSON.parse(localStorage.getItem("user_cart_items"));
     setFinalAmount(user_cart_items.reduce(reduceFunc, 0));
   }, []);
-
-  const [finalAmount, setFinalAmount] = useState(
-    user_cart_items.reduce(reduceFunc, 0)
-  );
-
-  // useEffect(() => {
-  //   setFinalAmount(cartItems.reduce(reduceFunc, 0));
-  // }, []);
 
   useEffect(() => {
     setShow(props.visible);
@@ -54,17 +47,17 @@ export default function ModalComponent(props) {
     localStorage.setItem("numOfProductsInCart", newCartItems.length);
   };
 
-  const handleCheckout = ()=>{
-    setShowAlert(true)
+  const handleCheckout = () => {
+    setShowAlert(true);
     setCartItems([]);
     setNumOfItems(0);
     localStorage.setItem("user_cart_items", "[]");
     localStorage.setItem("numOfProductsInCart", "0");
-    setTimeout(()=>{
-      setShowAlert(false)
-      handleClose()
-    }, 1500)
-  }
+    setTimeout(() => {
+      setShowAlert(false);
+      handleClose();
+    }, 1500);
+  };
 
   return (
     <>
@@ -113,7 +106,11 @@ export default function ModalComponent(props) {
         </Modal.Body>
         <Modal.Footer>
           <div>Promo code can be applied on payment page</div>
-          <Button onClick={handleCheckout} className="checkout-btn" variant="danger">
+          <Button
+            onClick={handleCheckout}
+            className="checkout-btn"
+            variant="danger"
+          >
             Proceed to Checkout Rs.{finalAmount}
           </Button>
         </Modal.Footer>
