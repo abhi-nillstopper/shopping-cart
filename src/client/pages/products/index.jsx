@@ -53,7 +53,10 @@ export default function ProductsPage(props) {
           {CategoriesDropdown.map((category, index) => {
             return (
               <div key={index}>
-                <button onClick={() => OnClickCategory(category.value)}>
+                <button
+                  className={radioValue === category.value && "active-nav-link"}
+                  onClick={() => OnClickCategory(category.value)}
+                >
                   {category.name}
                 </button>
               </div>
@@ -80,9 +83,10 @@ export default function ProductsPage(props) {
         </div>
 
         <div className="product-as-cards">
-          {products.map((product, index) => {
-            return <CardComponent key={product.id} product={product} />;
-          })}
+          {products.length > 0 &&
+            products.map((product, index) => {
+              return <CardComponent key={product.id} product={product} />;
+            })}
         </div>
       </div>
     </>
